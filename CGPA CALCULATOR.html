@@ -1,0 +1,135 @@
+<html>
+<head>
+	<title>cgpa calc</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- for variety of size across devices (responsive meta tag)-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- online reference to bootstrap5 css -->
+</head>
+<body>
+    
+<div class="container bg-info border d-flex aligns-items-center justify-content-center" style="margin-top:40px; height:82%; width:35%" >
+    <!-- center everything; bg is background color -->
+
+<table class="table" style="height:50%; width:45%">
+    <!-- putting whole table in bootstrap table class -->
+	<th  class="text-center" colspan="3" height="">
+		<strong><mark>CGPA Calculator</mark></strong>
+	</th>
+	<tr class="table-primary">
+		<td width ="25%" height = "10%">A+</td>
+		<td>
+            <input type="text" value="0" name="grade1" id="A+" >
+         </td>
+	</tr>
+	<tr class="table-success">
+		<td width ="25%" height = "10%">A</td>
+		<td>
+            <input type="text" value="0" name="grade2" id="A" >
+        </td>
+	</tr>
+    <tr class="table-info">
+        <td width ="25%" height = "10%">B+</td>
+        <td>
+            <input type="text" value="0" name="grade3" id="B+" >
+        </td>
+    </tr>
+    <tr class="table-primary">
+        <td width ="25%" height = "10%">B</td>
+        <td>
+            <input type="text" value="0" name="grade4" id="B" >
+        </td>
+    </tr>
+    <tr class="table-success">
+        <td width ="25%" height = "10%">C+</td>
+        <td>
+            <input type="text" value="0" name="grade5" id="C+" >
+        </td>
+    </tr>
+    <tr class="table-info">
+        <td width ="25%" height = "10%">C</td>
+        <td>
+            <input type="text" value="0" name="grade6" id="C" >
+        </td>
+    </tr>
+    <tr class="table-primary">
+        <td width ="25%" height = "10%">D+</td>
+        <td>
+            <input type="text" value="0" name="grade7" id="D+" >
+        </td>
+    </tr>
+    <tr class="table-success">
+        <td width ="25%" height = "10%">D</td>
+        <td>
+            <input type="text" value="0" name="grade8" id="D" >
+        </td>
+    </tr>
+    <tr class="table-info">
+        <td width ="20%" height = "10%">F</td>
+        <td>
+            <input type="text" value="0" name="grade9" id="F" >
+        </td>
+    </tr>
+    <tr class="table-danger">
+        <td colspan="3" height='20%' width='25%' align="center">
+            <span id="solve"></span>
+        </td>
+        
+    </tr>
+	<tr>
+		<td colspan="3" height ='0%' align="center">
+
+			<button class="btn btn-success" style="margin-bottom: 20px; margin-top: 20px " onclick="avg()">calculate</button>
+			<button class="btn btn-danger" onclick="reset()">reset</button>
+		</td>
+	</tr>
+	<!--all buttons and table rows coloured-->
+</table>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!--bootstrap 5 online reference JS bundle-->
+
+
+<script>
+   
+    function avg(){
+    var field1=document.getElementById("A+").value;
+    var field2=document.getElementById("A").value;
+    var field3=document.getElementById("B+").value;
+    var field4=document.getElementById("B").value;
+    var field5=document.getElementById("C+").value;
+    var field6=document.getElementById("C").value;
+    var field7=document.getElementById("D+").value;
+    var field8=document.getElementById("D").value;
+    var field9=document.getElementById("F").value;
+
+    var result = ((parseInt(field1)*4.00) + (parseInt(field2)*3.75)+(parseInt(field3)*3.50)+(parseInt(field4)*3.25)+(parseInt(field5)*3.00)+(parseInt(field6)*2.75)+(parseInt(field7)*2.50)+(parseInt(field8)*2.25)+(parseInt(field9)*0))/(parseInt(field1) + parseInt(field2)+parseInt(field3)+parseInt(field4)+parseInt(field5)+parseInt(field6)+parseInt(field7)+parseInt(field8)+parseInt(field9));
+    
+    document.getElementById("solve").innerHTML=result.toFixed(2);
+}
+
+function reset(){
+    result="";
+    document.getElementById("solve").innerHTML=result;
+    document.getElementById("A+").value=0;
+    document.getElementById("A").value=0;
+    document.getElementById("B+").value=0;
+    document.getElementById("B").value=0;
+    document.getElementById("C+").value=0;
+    document.getElementById("C").value=0;
+    document.getElementById("D+").value=0;
+    document.getElementById("D").value=0;
+    document.getElementById("F").value=0;
+    // reset solve to empty and all values to 0
+}
+
+</script>
+
+
+
+</body>
+</html>	
